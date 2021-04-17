@@ -60,7 +60,7 @@ button {
   background: #0bbf0b;
   color: #fff;
 }
-.addbtn:disabled{
+button:disabled{
   background: #eee;
   cursor: not-allowed;
   color: #999;

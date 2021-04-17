@@ -11,7 +11,7 @@ const MovieForm = () => {
 
     useEffect(() => {
         if (editMovieId) {
-            const movieObj = movieList.find((movie) => movie.id == editMovieId);
+            const movieObj = movieList.find((movie) => movie.id === editMovieId);
             setMovieName(movieObj.name);
             setMoviePrice(movieObj.price)
         }
@@ -35,7 +35,7 @@ const MovieForm = () => {
     const addMovie = () => {
         const movieListCopy = JSON.parse(JSON.stringify(movieList));
         if (editMovieId) {
-            const movieObj = movieListCopy.find((movie) => movie.id == editMovieId);
+            const movieObj = movieListCopy.find((movie) => movie.id === editMovieId);
             movieObj.name = movieName;
             movieObj.price = moviePrice;
             setMovieList([...movieListCopy]);
@@ -59,11 +59,12 @@ const MovieForm = () => {
                 <input type="text" id="movieName" value={movieName} onChange={({ target }) => setMovieName(target.value)} />
             </div>
             <div className="fieldContainer">
-                <label htmlFor="moviePrice">Movie Name:</label>
+                <label htmlFor="moviePrice">Ticket Price:</label>
                 <input type="text" id="moviePrice" value={moviePrice} onChange={({ target }) => setMoviePrice(target.value)} />
             </div>
             <div className="buttonContainer">
                 <button onClick={addMovie} className='addbtn' disabled={isDisabled}>{editMovieId ? 'Update' : 'Add'}</button>
+                <button onClick={resetFields} className='update' disabled={isDisabled}>Cancel</button>
             </div>
         </div>
     )
