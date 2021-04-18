@@ -60,7 +60,7 @@ const MovieForm = () => {
             </div>
             <div className="fieldContainer">
                 <label htmlFor="moviePrice">Ticket Price:</label>
-                <input type="text" id="moviePrice" value={moviePrice} onChange={({ target }) => setMoviePrice(target.value)} />
+                <input type="number" id="moviePrice" value={moviePrice} onChange={({ target }) => setMoviePrice(target.value)} />
             </div>
             <div className="buttonContainer">
                 <button onClick={addMovie} className='addbtn' disabled={isDisabled}>{editMovieId ? 'Update' : 'Add'}</button>
